@@ -6,8 +6,8 @@ const user = {
     repositories: [],
     following: '',
     followers: '',
-    createEvents: [],
-    pushEvents: [],
+    events: [],
+    
 
     setInfo(gitHubUser){
         this.avatarUrl = gitHubUser.avatar_url
@@ -21,8 +21,7 @@ const user = {
         this.repositories = repositories      
     },
     setEvents(events){
-        this.createEvents = events.filter(event => event.type === "CreateEvent");
-        this.pushEvents = events.filter(event => event.type === "PushEvent");
+        this.events = events.filter(event => event.type === "CreateEvent" || event.type === "PushEvent");
     }  
 }
 
